@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    body {
+        background: #0f172a;
+        margin: 0;
+        color: white;
+        font-family: 'Playfair Display', serif;
+        overflow: hidden; /* Screen scroll nahi hogi, sirf pics slide hongi */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .header-text {
+        margin-top: 50px;
+        font-size: 3rem;
+        color: #38bdf8;
+        text-shadow: 0 0 15px rgba(56, 189, 248, 0.5);
+    }
+
+    /* Picture Book Container */
+    .book-container {
+        position: fixed;
+        bottom: -50px; /* Neechay chhupa hua */
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+
+    /* Sliding Image Style */
+    .slide-pic {
+        position: absolute;
+        bottom: -6000px; /* Shuru mein screen se neechay */
+        width: 250px;
+        height: 350px;
+        object-fit: cover;
+        border: 10px solid white;
+        border-bottom: 40px solid white; /* Polaroid Look */
+        border-radius: 5px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275), bottom 0.8s;
+    }
+
+    /* Jab pic ooper aaye */
+    .slide-pic.active {
+        bottom: 150px;
+        transform: rotate(0deg) scale(1.1);
+        z-index: 100;
+    }
+
+    /* Arrow Button */
+    .arrow-btn {
+        position: fixed;
+        bottom: 30px;
+        background: transparent;
+        border: 2px solid #38bdf8;
+        color: #38bdf8;
+        font-size: 30px;
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        cursor: pointer;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: 0.3s;
+        z-index: 200;
+    }
+
+    .arrow-btn:hover {
+        background: #38bdf8;
+        color: #0f172a;
+        box-shadow: 0 0 20px #38bdf8;
+    }
+a{
+        background: transparent;
+        color: #38bdf8;
+                 text-decoration: none;
+padding: 12px 35px;
+            font-size: 16px;
+            font-weight: 600;
+            border: 1px solid #38bdf8;
+            border-radius: 5px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: 0.3s;
+        z-index: 200;margin-top: 420px;
+    margin-left: 400px;}
+    a:hover
+    {
+            padding: 12px 35px;
+            font-size: 16px;
+            font-weight: 600;
+            border: 1px solid #38bdf8;
+            border-radius: 5px;
+            background: #38bdf8; 
+            color: #0f172a;
+            box-shadow: 0 0 20px rgba(56, 189, 248, 0.4);
+            
+    }
+    
+</style>
+
+
+</head>
+<body>
+    <div class="header-text">Our Moments</div>
+
+<div id="book" class="book-container">
+    <img src="./WhatsApp Image 2026-02-11 at 8.00.26 PM.jpeg" class="slide-pic" style="transform: rotate(-5deg);">
+    <img src="./WhatsApp Image 2026-02-11 at 8.05.35 PM.jpeg" class="slide-pic" style="transform: rotate(3deg);">
+    <img src="./WhatsApp Image 2026-02-11 at 8.33.45 PM.jpeg" class="slide-pic" style="transform: rotate(-2deg);">
+    <img src="./WhatsApp Image 2026-02-11 at 8.05.37 PM (1).jpeg" class="slide-pic" style="transform: rotate(6deg);">
+    <img src="./WhatsApp Image 2026-02-11 at 8.33.45 PM (1).jpeg" class="slide-pic" style="transform: rotate(-4deg);">
+    <img src="./WhatsApp Image 2026-02-11 at 8.05.38 PM (1).jpeg" class="slide-pic" style="transform: rotate(2deg);">
+    <img src="./WhatsApp Image 2026-02-11 at 8.33.44 PM.jpeg" class="slide-pic" style="transform: rotate(-7deg);">
+    <img src="./WhatsApp Image 2026-02-11 at 8.05.40 PM (1).jpeg" class="slide-pic" style="transform: rotate(4deg);">
+    <img src="./WhatsApp Image 2026-02-11 at 8.33.44 PM (1).jpeg" class="slide-pic" style="transform: rotate(-1deg);">
+</div>
+
+<button class="arrow-btn" onclick="nextPic()">↑</button>
+<a href="./video1.html">CLICK FOR NEXT SURPRISE</a>
+
+<script>
+    let currentIdx = 0;
+    const pics = document.querySelectorAll('.slide-pic');
+
+    function nextPic() {
+        if (currentIdx < pics.length) {
+            // Purani pic ko side par karo ya dhundla karo (Optional)
+            if (currentIdx > 0) {
+                pics[currentIdx - 1].style.transform = "translateX(-300px) rotate(-15deg)";
+                pics[currentIdx - 1].style.opacity = "0.5";
+            }
+            
+            // Agli pic ooper lao
+            pics[currentIdx].classList.add('active');
+            currentIdx++;
+        } else {
+            alert("Ye hamari saari yaadein thin! ❤️");
+        }
+    }
+</script>
+</body>
+</html>

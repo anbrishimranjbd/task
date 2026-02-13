@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title><style>
+    body {
+        background: #0f172a;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        overflow: hidden;
+    }
+
+    /* Dermiyan wali bari pic ka style */
+    .main-center-pic {
+        width: 350px; /* Size aap chota-bara kar sakti hain */
+        height: 380px;
+        object-fit: cover;
+        border: 8px solid white;
+        border-radius: 15px;
+        box-shadow: 0 0 50px rgba(56, 189, 248, 0.6);
+        animation: glow 2s infinite alternate;
+    }
+
+    @keyframes glow {
+        from { box-shadow: 0 0 20px rgba(56, 189, 248, 0.4); }
+        to { box-shadow: 0 0 50px rgba(56, 189, 248, 0.8); }
+    }
+
+    .music-note {
+        margin-top: 20px;
+        color: #38bdf8;
+        font-size: 0.9rem;
+        font-style: italic;
+    }.back-home
+        {
+            margin-top: 5px;
+            padding: 10px 25px;
+            border: 1px solid #38bdf8;
+            color: #38bdf8;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+        .back-home:hover
+        {
+            background: #38bdf8;
+            color: #0f172a;
+        }
+</style>
+</head>
+<body>
+    <audio id="bgMusic" loop>
+    <source src="./Intezaar - Zain Worldwide _ Official Video _ Latest Hindi Songs 2025.mp3" type="audio/mpeg">
+</audio>
+
+<div class="header-text" style="color: #38bdf8; margin-bottom: 20px; font-size: 2rem;">Thinking of You...</div>
+
+<img src="./WhatsApp Image 2026-02-11 at 8.05.39 PM (1).jpeg" class="main-center-pic" id="mainPic">
+
+<p class="music-note">♫ Click anywhere..</p>
+    <a href="./video4.html" class="back-home">CLICK FOR NEXT SURPRISE</a>
+
+
+<script>
+    // Jaise hi page load ho aur user kahin bhi click kare, music shuru ho jaye
+    window.addEventListener('click', function() {
+        var audio = document.getElementById('bgMusic');
+        audio.play();
+    }, { once: true }); // Sirf pehli dafa click par chalega
+</script>
+</body>
+</html>
+
+
